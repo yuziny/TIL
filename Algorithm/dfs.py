@@ -3,6 +3,7 @@
 # 2. 시간복잡도는 O(N)
 #######################
 
+# 각 노드가 연결된 정보를 리스트 자료형으로 표현(2차원)
 graph = [
     [].
     [2,3,8],
@@ -14,8 +15,10 @@ graph = [
     [2,6,8],
     [1,7]
 ]
+# 각 노드가 방문된 정보를 리스트 자료형으로 표현(1차원)
 visited = [False] * len(graph)
 
+# DFS 메서드 정의
 def dfs(graph, v, visited):
     # 시작노드 방문처리
     visited[v] = True
@@ -25,5 +28,6 @@ def dfs(graph, v, visited):
         if not visited[i]:
             visited[i] = True
             dfs(graph, i, visited)
-
-    dfs(graph, 1, visited)
+            
+# 정의된 DFS 함수 호출
+dfs(graph, 1, visited)
